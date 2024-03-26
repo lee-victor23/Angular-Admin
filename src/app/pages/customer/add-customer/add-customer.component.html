@@ -1,0 +1,55 @@
+<div class="col-lg-6">
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <nb-card>
+      <nb-card-header>Customer Details</nb-card-header>
+      <nb-card-body>
+        <div class="form-group">
+          <label for="companyName" class="label">Company Name</label>
+          <input type="text" nbInput id="companyName" formControlName="name" fullWidth
+            placeholder="Company Name">
+        </div>
+        <div class="form-group" formGroupName="address">
+          <label for="addressLine1" class="label">Address Line 1</label>
+          <input type="text" nbInput id="addressLine1" formControlName="addressLine1" fullWidth
+            placeholder="Street Address">
+        </div>
+        <div class="form-group" formGroupName="address">
+          <label for="addressLine2" class="label">Address Line 2</label>
+          <input type="text" nbInput id="addressLine1" formControlName="addressLine2" fullWidth
+            placeholder="Apt, suite,etc. (optional)">
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group" formGroupName="address">
+              <label for="zipCode" class="label">Zip Code</label>
+              <input type="text" nbInput fullWidth id="zipCode" formControlName="zipCode" placeholder="Zip Code">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group" formGroupName="address">
+              <label for="state" class="label">State</label>
+              <input type="text" nbInput fullWidth id="state" formControlName="state" placeholder="State">
+            </div>
+          </div>
+        </div>
+        <div class="form-group" formGroupName="address">
+          <label for="city" class="label">City</label>
+          <input type="text" nbInput id="city" formControlName="city" fullWidth placeholder="City">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber" class="label">Phone Number</label>
+          <input type="number" nbInput id="phoneNumber" formControlName="phone_number" fullWidth
+            placeholder="Phone Number">
+        </div>
+        <div class="form-group">
+          <label for="emailAddress" class="label">Email Address</label>
+          <input type="email" nbInput id="emailAddress" formControlName="email_address" fullWidth
+            placeholder="Email Address (optional)">
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button type="submit" nbButton status="primary" >Submit</button>
+      </nb-card-footer>
+    </nb-card>
+  </form>
+</div>
