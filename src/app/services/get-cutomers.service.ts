@@ -22,31 +22,32 @@ export class CustomersService {
 
   // READALL: Get all customers
   getAllCustomers(): Observable<any> {
-    const endpoint = `${this.apiUrl}/customers`;
+    const endpoint = `${this.apiUrl}customers`;
     return this.http.get(endpoint).pipe(catchError(this.handleError));
   }
 
   // CREATE: Add a new customer
   addCustomer(customerData: any): Observable<any> {
-    const endpoint = `${this.apiUrl}/customers`;
+    customerData.address = JSON.stringify(customerData.address);
+    const endpoint = `${this.apiUrl}customers`;
     return this.http.post(endpoint, customerData).pipe(catchError(this.handleError));
   }
 
   // READ: Get a single customer by id
   getCustomerById(id: number): Observable<any> {
-    const endpoint = `${this.apiUrl}/customers/${id}`;
+    const endpoint = `${this.apiUrl}customers/${id}`;
     return this.http.get(endpoint).pipe(catchError(this.handleError));
   }
 
   // UPDATE: Update a customer's information
   updateCustomer(id: number, customerData: any): Observable<any> {
-    const endpoint = `${this.apiUrl}/customers/${id}`;
+    const endpoint = `${this.apiUrl}customers/${id}`;
     return this.http.put(endpoint, customerData).pipe(catchError(this.handleError));
   }
 
   // DELETE: Remove a customer
   deleteCustomer(id: number): Observable<any> {
-    const endpoint = `${this.apiUrl}/customers/${id}`;
+    const endpoint = `${this.apiUrl}customers/${id}`;
     return this.http.delete(endpoint).pipe(catchError(this.handleError));
   }
 
