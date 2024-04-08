@@ -16,7 +16,7 @@ export class CustomersService {
 
   // READ: Get a list of customers
   getCustomers(skip = 0, take = 5): Observable<any> {
-    const endpoint = `${this.apiUrl}query?modelName=Customer&skip=${skip}&take=${take}`;
+    const endpoint = `${this.apiUrl}api/query?modelName=Customer&skip=${skip}&take=${take}`;
     return this.http.get(endpoint).pipe(catchError(this.handleError));
   }
 
