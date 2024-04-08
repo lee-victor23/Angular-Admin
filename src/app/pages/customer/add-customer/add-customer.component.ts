@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CustomersService } from '../../../services/get-cutomers.service';
 import {
   NbComponentStatus,
   NbGlobalLogicalPosition,
@@ -30,7 +31,7 @@ export class AddCustomerComponent {
     email_address: new FormControl(''),
   });
 
-  constructor(private http: HttpClient, private toastrService: NbToastrService) {}
+  constructor(private http: HttpClient, private toastrService: NbToastrService, private customer:CustomersService) {}
 
   private showToast(type: NbComponentStatus, title: string, body: string) {
     const config = {
@@ -51,8 +52,8 @@ export class AddCustomerComponent {
 
   onSubmit() {
     const formData = this.customerForm.value;
-
-    this.http.post('http://localhost:3000/customers', formData).subscribe({
+    
+    this.customer.addCustomer(formData).subscribe({
       next: (response) => {
         console.log(response);
         this.showToast('success', 'Added Successfully', 'Customer was added into system.');
