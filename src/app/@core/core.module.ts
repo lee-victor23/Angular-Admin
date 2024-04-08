@@ -53,6 +53,8 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 
+import { environment } from '../../environments/environment';
+
 export interface NbAuthSocialLink {
   link?: string,
   url?: string,
@@ -132,12 +134,12 @@ export const NB_CORE_PROVIDERS = [
           class: NbAuthJWTToken, //NbAuthSimpleToken
           key: "token",
         },
-        baseEndpoint: "http://localhost:3000",
+        baseEndpoint: environment.apiUrl,
         login: {
-          endpoint: "/api/auth/login",
+          endpoint: "api/auth/login",
         },
         register: {
-          endpoint: "/api/auth/register",
+          endpoint: "api/auth/register",
         },
       }),
     ],
